@@ -1,0 +1,562 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dennis Florendo - Financial Strategist</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <style>
+    /* ------------------- */
+    /* --- Base & Reset -- */
+    /* ------------------- */
+    :root {
+      /* Colors */
+      --color-white: #ffffff;
+      --color-black: #111827;
+      --color-neutral-50: #f9fafb;
+      --color-neutral-200: #e5e7eb;
+      --color-neutral-300: #d1d5db;
+      --color-neutral-400: #9ca3af;
+      --color-neutral-500: #6b7280;
+      --color-neutral-600: #4b5563;
+      --color-neutral-700: #374151;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--color-neutral-700);
+      background-color: var(--color-white);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4 {
+      color: var(--color-black);
+      line-height: 1.2;
+    }
+
+    p {
+      color: var(--color-neutral-600);
+    }
+    
+    a, button, .cursor-pointer {
+      cursor: pointer;
+    }
+    
+    ul {
+      list-style: none;
+    }
+
+    /* ------------------- */
+    /* --- Utility Classes - */
+    /* ------------------- */
+    .container {
+      max-width: 80rem; /* 1280px */
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.5rem; /* 24px */
+      padding-right: 1.5rem; /* 24px */
+    }
+    
+    .section {
+      padding-top: 4rem; /* 64px */
+      padding-bottom: 4rem; /* 64px */
+    }
+    
+    .text-center {
+        text-align: center;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 0.75rem 2rem; /* 12px 32px */
+        border: 1px solid var(--color-black);
+        font-weight: 500;
+        text-decoration: none;
+        transition: color 0.2s, background-color 0.2s;
+    }
+
+    .btn-dark {
+        background-color: var(--color-black);
+        color: var(--color-white);
+    }
+
+    .btn-dark:hover {
+        background-color: var(--color-white);
+        color: var(--color-black);
+    }
+
+    .btn-light {
+        background-color: var(--color-white);
+        color: var(--color-black);
+    }
+
+    .btn-light:hover {
+        background-color: var(--color-black);
+        color: var(--color-white);
+    }
+    
+    /* ------------------- */
+    /* --- Header / Nav -- */
+    /* ------------------- */
+    
+    #main-header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+    
+    #main-header .logo {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--color-black);
+    }
+
+    #main-header nav {
+        display: flex;
+        gap: 2rem; /* 32px */
+    }
+
+    #main-header nav span {
+        color: var(--color-neutral-600);
+    }
+
+    #main-header nav span:hover {
+        color: var(--color-black);
+    }
+    
+    #main-header .header-btn {
+        padding: 0.5rem 1.5rem;
+    }
+
+    /* ------------------- */
+    /* --- Hero Section -- */
+    /* ------------------- */
+    #hero-section {
+      background-color: var(--color-white);
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+    }
+
+    #hero-section .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 3rem; /* 48px */
+    }
+
+    #hero-section .hero-content > * {
+        margin-bottom: 1.5rem;
+    }
+    
+    #hero-section h1 {
+        font-size: 3rem; /* 48px */
+    }
+
+    #hero-section h2 {
+        font-size: 1.5rem; /* 24px */
+        color: var(--color-neutral-700);
+    }
+
+    #hero-section h3 {
+        font-size: 1.25rem; /* 20px */
+        color: var(--color-neutral-600);
+    }
+    
+    #hero-section .hero-buttons {
+        padding-top: 1rem;
+        display: flex;
+        gap: 1rem; /* 16px */
+    }
+    
+    #hero-section .image-placeholder {
+      height: 24rem; /* 384px */
+      background-color: var(--color-neutral-400);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-white);
+      font-size: 1.125rem;
+    }
+
+    /* ------------------- */
+    /* --- Other Sections  */
+    /* ------------------- */
+    #services-section, #testimonials-section {
+        background-color: var(--color-neutral-50);
+    }
+    
+    .section-title {
+        font-size: 1.875rem; /* 30px */
+        text-align: center;
+        margin-bottom: 3rem; /* 48px */
+    }
+    
+    /* Services & Testimonials Cards */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem; /* 32px */
+    }
+
+    .card {
+      background-color: var(--color-white);
+      border: 1px solid var(--color-neutral-200);
+      padding: 1.5rem; /* 24px */
+    }
+    
+    .card .image-placeholder {
+      height: 12rem; /* 192px */
+      background-color: var(--color-neutral-400);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-white);
+      font-size: 0.875rem;
+    }
+
+    .card h3 {
+      font-size: 1.25rem; /* 20px */
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Approach Section */
+    #approach-section .approach-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem; /* 48px */
+    }
+    
+    #approach-section .approach-box {
+        padding: 2rem; /* 32px */
+    }
+
+    #approach-section .approach-box h3 {
+        font-size: 1.5rem; /* 24px */
+        margin-bottom: 1.5rem;
+    }
+
+    #approach-section .approach-box ul li {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+    }
+    
+    #approach-section .approach-box ul li span:first-child {
+        margin-right: 0.75rem;
+        color: var(--color-neutral-400);
+    }
+
+    #approach-section .traditional-box {
+        background-color: var(--color-neutral-50);
+        border: 1px solid var(--color-neutral-200);
+    }
+    
+    #approach-section .strategic-box {
+        background-color: var(--color-black);
+    }
+
+    #approach-section .strategic-box h3,
+    #approach-section .strategic-box span {
+        color: var(--color-white);
+    }
+    
+    /* Testimonials Section */
+    #testimonials-section .card .image-placeholder {
+        width: 4rem; /* 64px */
+        height: 4rem; /* 64px */
+        border-radius: 9999px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 0.75rem;
+    }
+    
+    #testimonials-section .card p.testimonial-text {
+        font-style: italic;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    #testimonials-section .card .client-name {
+        color: var(--color-black);
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    #testimonials-section .card .client-company {
+        color: var(--color-neutral-600);
+        font-size: 0.875rem; /* 14px */
+        text-align: center;
+    }
+    
+    /* CTA Section */
+    #cta-section {
+        background-color: var(--color-black);
+        color: var(--color-neutral-300);
+    }
+
+    #cta-section .container {
+        max-width: 56rem; /* 896px */
+        text-align: center;
+    }
+
+    #cta-section h2 {
+        color: var(--color-white);
+        font-size: 1.875rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    #cta-section p {
+        font-size: 1.25rem;
+        margin-bottom: 2rem;
+    }
+    
+    #cta-section .cta-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    #cta-section .btn-light {
+        border-color: var(--color-white);
+    }
+    
+    #cta-section .btn-dark {
+        border-color: var(--color-white);
+    }
+
+    /* Footer */
+    #main-footer {
+        background-color: var(--color-white);
+        border-top: 1px solid var(--color-neutral-200);
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+    
+    #main-footer .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    #main-footer h3, #main-footer h4 {
+        margin-bottom: 1rem;
+    }
+
+    #main-footer p, #main-footer li {
+        font-size: 0.875rem; /* 14px */
+    }
+
+    #main-footer .footer-links li {
+        margin-bottom: 0.5rem;
+    }
+
+    #main-footer .footer-links span:hover {
+        color: var(--color-black);
+    }
+
+    #main-footer .social-links {
+        display: flex;
+        gap: 1rem;
+    }
+
+    #main-footer .social-links .fa-brands {
+        font-size: 1.25rem;
+        color: var(--color-neutral-600);
+    }
+
+    #main-footer .social-links .fa-brands:hover {
+        color: var(--color-black);
+    }
+    
+    #main-footer .footer-bottom {
+        border-top: 1px solid var(--color-neutral-200);
+        padding-top: 2rem;
+        text-align: center;
+        color: var(--color-neutral-600);
+        font-size: 0.875rem;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <header id="main-header">
+    <div class="container">
+      <div class="logo">DENNIS FLORENDO</div>
+      <nav>
+        <span class="cursor-pointer">About</span>
+        <span class="cursor-pointer">Services</span>
+        <span class="cursor-pointer">Testimonials</span>
+        <span class="cursor-pointer">Contact</span>
+      </nav>
+      <button class="btn btn-dark header-btn">Book a Call</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <h1>DENNIS FLORENDO</h1>
+          <h2>Eliminate Risks, Fees &amp; Taxes</h2>
+          <h3>Graduate from Tax-Deferred to Tax-Free</h3>
+          <p>Helping you keep 30–40% more of your capital is our Specialty</p>
+          <p>Learn the strategies that the top 1% have been implementing for years</p>
+          <div class="hero-buttons">
+            <button class="btn btn-dark">Learn More</button>
+            <button class="btn btn-light">Book a Call</button>
+          </div>
+        </div>
+        <div class="image-placeholder">
+          <span>[Image Placeholder]</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="services-section" class="section">
+      <div class="container">
+        <h2 class="section-title">Selected Work / Services</h2>
+        <div class="cards-grid">
+          <div class="card">
+            <div class="image-placeholder"><span>[Image Placeholder]</span></div>
+            <h3>[Service Title 1]</h3>
+            <p>[One-line description of service or category]</p>
+          </div>
+          <div class="card">
+            <div class="image-placeholder"><span>[Image Placeholder]</span></div>
+            <h3>[Service Title 2]</h3>
+            <p>[One-line description of service or category]</p>
+          </div>
+          <div class="card">
+            <div class="image-placeholder"><span>[Image Placeholder]</span></div>
+            <h3>[Service Title 3]</h3>
+            <p>[One-line description of service or category]</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="approach-section" class="section">
+      <div class="container">
+        <h2 class="section-title">There's a Better Way!!!</h2>
+        <div class="approach-grid">
+          <div class="approach-box traditional-box">
+            <h3>Traditional Approach</h3>
+            <ul>
+              <li><span>•</span><span>Tax-Deferred (pay taxes later at unknown rates)</span></li>
+              <li><span>•</span><span>Exposed to Market Volatility</span></li>
+              <li><span>•</span><span>1–2% Management Fees Every Year</span></li>
+              <li><span>•</span><span>Early withdrawal penalties</span></li>
+              <li><span>•</span><span>Generic advice based on group plans</span></li>
+            </ul>
+          </div>
+          <div class="approach-box strategic-box">
+            <h3>Strategic Approach</h3>
+            <ul>
+              <li><span>•</span><span>Tax-Free Growth &amp; Access</span></li>
+              <li><span>•</span><span>Principal-Protected Strategies</span></li>
+              <li><span>•</span><span>No Advisory or Management Fees</span></li>
+              <li><span>•</span><span>Liquidity with No Age Restrictions</span></li>
+              <li><span>•</span><span>Customized Solutions Built Around You</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials-section" class="section">
+      <div class="container">
+        <h2 class="section-title">Client Testimonials</h2>
+        <div class="cards-grid">
+          <div class="card">
+            <div class="image-placeholder"><span>[Image]</span></div>
+            <p class="testimonial-text">"[Testimonial text placeholder for client feedback and experience]"</p>
+            <p class="client-name">[Client Name]</p>
+            <p class="client-company">[Position or Company]</p>
+          </div>
+          <div class="card">
+            <div class="image-placeholder"><span>[Image]</span></div>
+            <p class="testimonial-text">"[Testimonial text placeholder for client feedback and experience]"</p>
+            <p class="client-name">[Client Name]</p>
+            <p class="client-company">[Position or Company]</p>
+          </div>
+          <div class="card">
+            <div class="image-placeholder"><span>[Image]</span></div>
+            <p class="testimonial-text">"[Testimonial text placeholder for client feedback and experience]"</p>
+            <p class="client-name">[Client Name]</p>
+            <p class="client-company">[Position or Company]</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cta-section" class="section">
+      <div class="container">
+        <h2>Let's Work Together</h2>
+        <p>Start your strategy session today and discover how to keep more of your capital</p>
+        <div class="cta-buttons">
+          <button class="btn btn-light">Book a Call</button>
+          <button class="btn btn-dark">Contact Me</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>DENNIS FLORENDO</h3>
+          <p>Financial strategist helping clients optimize their wealth through tax-free strategies.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><span class="cursor-pointer">About</span></li>
+            <li><span class="cursor-pointer">Services</span></li>
+            <li><span class="cursor-pointer">Testimonials</span></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><span class="cursor-pointer">Contact</span></li>
+            <li><span class="cursor-pointer">Legal</span></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Follow</h4>
+          <div class="social-links">
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Dennis Florendo. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
